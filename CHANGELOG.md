@@ -1,4 +1,7 @@
 # Changelog
+# 6.5.0
+* Reorganize project structure.
+
 # 6.4.10
 * Add SSH back.
 * Fix bug during configuration causing bots to maybe not connect.
