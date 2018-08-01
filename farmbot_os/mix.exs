@@ -7,7 +7,7 @@ defmodule Farmbot.OS.MixProject do
   def project do
     [
       app: :farmbot_os,
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       target: @target,
       version: @version,
       archives: [nerves_bootstrap: "~> 1.0"],
@@ -40,8 +40,8 @@ defmodule Farmbot.OS.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:nerves, "~> 1.0", runtime: false},
-      {:shoehorn, "~> 0.3"},
+      {:nerves, "~> 1.3", runtime: false},
+      {:shoehorn, "~> 0.4"},
 
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 1.0"},

@@ -19,7 +19,7 @@ defmodule FarmbotCore.MixProject do
     [
       app: :farmbot_core,
       description: "The Brains of the Farmbot Project",
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       make_clean: ["clean"],
       make_env: make_env(),
       make_cwd: __DIR__,
@@ -37,7 +37,7 @@ defmodule FarmbotCore.MixProject do
         flags: []
       ],
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
       source_url: "https://github.com/Farmbot/farmbot_os",
       homepage_url: "http://farmbot.io",
     ]
