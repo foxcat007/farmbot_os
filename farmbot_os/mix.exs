@@ -51,17 +51,21 @@ defmodule Farmbot.OS.MixProject do
       {:farmbot_core, path: "../farmbot_core", env: Mix.env()},
       {:farmbot_ext, path: "../farmbot_ext", env: Mix.env()},
       {:logger_backend_ecto, "~> 1.2"},
-      {:dialyxir, "~> 1.0.0-rc.2", runtime: false, override: true},
+      {:dialyxir, "~> 1.0.0-rc.3", runtime: false, override: true},
     ] ++ deps(@target)
   end
 
   # Specify target specific dependencies
-  defp deps("host"), do: []
+  defp deps("host"), do: [
+    {:excoveralls, "~> 0.9", only: [:test]},
+    {:ex_doc, "0.18.4", only: [:dev], runtime: false},
+  ]
 
   defp deps(target) do
     [
       {:nerves_runtime, "~> 0.6.4"},
       {:nerves_network, "~> 0.3.6"},
+      {:nerves_wpa_supplicant, github: "nerves-project/nerves_wpa_supplicant", override: true},
       {:nerves_firmware, "~> 0.4.0"},
       {:nerves_time, "~> 0.2"},
       {:dhcp_server, "~> 0.4.0"},
@@ -83,6 +87,6 @@ defmodule Farmbot.OS.MixProject do
     ["./lib", "./platform/target"]
   end
 
-  defp system("rpi3"), do: [{:nerves_system_farmbot_rpi3, "1.2.1-farmbot.1", runtime: false}]
+  defp system("rpi3"), do: [{:nerves_system_farmbot_rpi3, "1.2.1-farmbot.2", runtime: false}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end
