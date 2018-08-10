@@ -87,6 +87,6 @@ defmodule Farmbot.OS.MixProject do
     ["./lib", "./platform/target"]
   end
 
-  defp system("rpi3"), do: [{:nerves_system_farmbot_rpi3, "1.2.1-farmbot.2", runtime: false}]
+  defp system("rpi3"), do: [{:nerves_system_farmbot_rpi3, "1.3.0-farmbot.2", runtime: false}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end
