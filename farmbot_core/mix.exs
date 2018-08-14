@@ -58,11 +58,8 @@ defmodule FarmbotCore.MixProject do
       # Arduino Firmware stuff.
       {:elixir_make, "~> 0.4.1", runtime: false},
       {:nerves_uart, "~> 1.2"},
-
       {:gen_stage, "~> 0.12"},
-
       {:sqlite_ecto2, "~> 2.2.4"},
-
       {:timex, "~> 3.3"},
 
       {:excoveralls, "~> 0.9", only: [:test]},
