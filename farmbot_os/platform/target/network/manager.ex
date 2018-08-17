@@ -41,7 +41,7 @@ defmodule Farmbot.Target.Network.Manager do
       init(args)
     end
 
-    Logger.Logger.success(3, "Interface #{interface} is up.")
+    Farmbot.Logger.success(3, "Interface #{interface} is up.")
     Process.flag(:sensitive, true)
     s1 = get_config_value(:string, "settings", "default_ntp_server_1")
     s2 = get_config_value(:string, "settings", "default_ntp_server_2")
