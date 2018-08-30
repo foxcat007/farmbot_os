@@ -11,10 +11,11 @@ defmodule Farmbot.AMQP.ChannelSupervisor do
     conn = Farmbot.AMQP.ConnectionWorker.connection()
     jwt = Farmbot.Jwt.decode!(token)
     children = [
+      {Farmbot.AMQP.ConsoleTransport,      [conn, jwt]},
       {Farmbot.AMQP.LogTransport,          [conn, jwt]},
       {Farmbot.AMQP.BotStateTransport,     [conn, jwt]},
       {Farmbot.AMQP.AutoSyncTransport,     [conn, jwt]},
-      {Farmbot.AMQP.CeleryScriptTransport, [conn, jwt]}
+      {Farmbot.AMQP.CeleryScriptTransport, [conn, jwt]},
     ]
     Supervisor.init(children, [strategy: :one_for_one])
   end

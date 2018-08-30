@@ -10,7 +10,7 @@ defmodule Farmbot.OS.MixProject do
       elixir: @elixir_version,
       target: @target,
       version: @version,
-      archives: [nerves_bootstrap: "~> 1.0"],
+      archives: [nerves_bootstrap: "~> 1.2"],
       deps_path: "deps/#{@target}",
       build_path: "_build/#{@target}",
       lockfile: "mix.lock.#{@target}",
@@ -58,7 +58,7 @@ defmodule Farmbot.OS.MixProject do
   # Specify target specific dependencies
   defp deps("host"), do: [
     {:excoveralls, "~> 0.9", only: [:test]},
-    {:ex_doc, "0.18.4", only: [:dev], runtime: false},
+    {:ex_doc, "~> 0.19", only: [:dev], runtime: false},
   ]
 
   defp deps(target) do
@@ -88,6 +88,6 @@ defmodule Farmbot.OS.MixProject do
     ["./lib", "./platform/target"]
   end
 
-  defp system("rpi3"), do: [{:nerves_system_farmbot_rpi3, "1.3.0-farmbot.2", runtime: false}]
+  defp system("rpi3"), do: [{:nerves_system_farmbot_rpi3, "1.4.0-farmbot.0", runtime: false}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end
